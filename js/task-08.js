@@ -4,19 +4,30 @@ form.addEventListener('submit', forSubmit);
 
 function forSubmit(event) {
     event.preventDefault();
+    const allEl = event.currentTarget.elements;
+    const mail = allEl.email.value;
+    const pass = allEl.password.value;
 
-        if (form.email.value === '' && form.password.value === '') {
-            alert('Всі поля повинні бути заповнені');
-            form.reset();
+    if (mail === '' || pass === '') {
+        alert('Всі поля повинні бути заповнені');
     }
-    
-    const formData = new FormData(event.currentTarget);
-    console.dir(formData)
-    formData.forEach((value, name) => {
+        const elInMas = {
+            mail, pass
+        };
+        console.log(elInMas);
 
-        console.log(`${name}:`, value);
+    //     if (form.email.value === '' && form.password.value === '') {
+    //         alert('Всі поля повинні бути заповнені');
+    //         form.reset();
+    // }
+    
+    // const formData = new FormData(event.currentTarget);
+    // console.dir(formData)
+    // formData.forEach((value, name) => {
+
+    //     console.log(`${name}:`, value);
         
-    })
+    // })
 
     // const allEl = event.currentTarget.elements;
     // console.dir(allEl);
