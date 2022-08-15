@@ -13,14 +13,24 @@ const images = [
   },
 ];
 
+// const findUl = document.querySelector('ul');
+
+// const elem = images.map(image => {
+//   const newLi = document.createElement('li');
+//   findUl.append(newLi);
+//   const newImg = document.createElement('img');
+//   newImg.setAttribute('src', image.url);
+//   newImg.setAttribute('alt', image.alt);
+//   newLi.append(newImg);
+
+//   return newLi;
+// });
+
+// console.log(elem);
+
+
 const findUl = document.querySelector('ul');
-const elem = images.map(image => {
-  const newLi = document.createElement('li');
-  newLi.setAttribute('url', image.url);
-  newLi.insertAdjacentHTML('afterbegin', newLi);
-  newLi.setAttribute('alt', image.alt);
-  newLi.insertAdjacentHTML('beforeend', newLi);
-  findUl.append(newLi);
-  return findUl;
-});
-console.log(findUl);
+const galleryList = images
+  .map(({url, alt}) => `<li class ='item'><img src =${url} alt=${alt}></img></li>`
+  ).join("")
+findUl.insertAdjacentHTML("beforeend", galleryList);
